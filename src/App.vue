@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-   App<el-button type="info" round>信息按钮</el-button>
+    <!-- //要定义容器 -->
+  <router-view></router-view>
   </div>
 </template>
 
