@@ -73,22 +73,17 @@ export default {
         if (valid) {
           // 如果成功就请求登录接口
           this.$http
-            .post(
-              'http://ttapi.research.itcast.cn/mp/v1_0/authorizations',
-              this.loginForm
-            )
+            .post('/authorizations', this.loginForm)
             .then(res => {
-              this.$router.push('/home')
-
               // 响应对象  包含相应主
               // console.log(res.data)
               // 存储用户信息
               store.setUser(res.data.data)
-
               // 跳转到首页
               this.$router.push('/home')
             })
-            .catch(() => {
+            .catch(err => {
+              console.log(err)
               this.$message.error('手机号或验证码错误')
             })
         }

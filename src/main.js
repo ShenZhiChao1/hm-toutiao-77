@@ -6,8 +6,10 @@ import '@/style/index.less'
 // 把router组件挂在到main.js中
 import router from '@/router'
 // 把axios挂载到main.js中
-import axios from 'axios'
+import axios from '@/api'
+
 Vue.prototype.$http = axios
+
 Vue.config.productionTip = false
 Vue.use(ElementUI)
 new Vue({

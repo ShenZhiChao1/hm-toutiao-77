@@ -7,11 +7,14 @@ const KEY = 'hm-toutiao-77-user'
 
 export default {
   setUser (user) {
+    // if (!user) {
+    //   return window.sessionStorage.setItem(KEY, JSON.stringify({}))
+    // }
     // 存储用户信息到sessionStorage
     window.sessionStorage.setItem(KEY, JSON.stringify(user))
   },
   getUser () {
     // 获取用户信息从sessionStorage
-    return JSON.parse(window.sessionStorage.getItem(KEY || '{}'))
+    return JSON.parse(window.sessionStorage.getItem(KEY) || '{}')
   }
 }
