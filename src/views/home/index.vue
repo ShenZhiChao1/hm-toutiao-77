@@ -52,13 +52,13 @@
         <span class="text">江苏传智播客科技教育有限公司</span>
         <el-dropdown class="my-dropdown">
           <span class="el-dropdown-link">
-            <img alt src="../../assets/images/avatar.jpg" />
-            用户名称
+            <img :src="photo" alt />
+            {{name}}
             <i class="el-icon-arrow-down el-icon--right"></i>
           </span>
           <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item>个人设置</el-dropdown-item>
-            <el-dropdown-item>退出登录</el-dropdown-item>
+            <el-dropdown-item @click.native="setting()" icon="el-icon-setting">个人设置</el-dropdown-item>
+            <el-dropdown-item @click.native="logout()" icon="el-icon-unlock">退出登录</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
       </el-header>
@@ -70,15 +70,32 @@
 </template>
 
 <script>
+import store from '@/store'
+
 export default {
   data () {
     return {
-      isCollapse: false
+      isCollapse: false,
+      name: '',
+      photo: ''
     }
+  },
+  created () {
+    // 获取本地用户信息
+    const user = store.getUser()
+    this.name = user.name
+    this.photo = user.photo
   },
   methods: {
     toggleMenu () {
       this.isCollapse = !this.isCollapse
+    },
+    setting () {
+      this.$router.push('/setting')
+    },
+    logout () {
+      store.clUser()
+      this.$router.push({ name: 'login' })
     }
   }
 }
