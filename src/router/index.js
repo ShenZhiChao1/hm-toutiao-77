@@ -6,6 +6,7 @@ import Welcome from '@/views/welcome'
 import Articles from '@/views/article'
 import NOTFOUND from '@/views/404'
 import store from '@/store'
+import Image from '@/views/image'
 Vue.use(VueRouter)
 const router = new VueRouter({
   // name的作用给当前路由取名字。
@@ -25,6 +26,11 @@ const router = new VueRouter({
           path: '/article',
           name: 'article',
           component: Articles
+        },
+        {
+          path: '/image',
+          name: 'image',
+          component: Image
         }
       ]
     },

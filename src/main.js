@@ -7,7 +7,7 @@ import '@/style/index.less'
 import router from '@/router'
 // 把axios挂载到main.js中
 import axios from '@/api'
-import myCom from '@/components/my-bread'
+import myCom from '@/components'
 Vue.prototype.$http = axios
 Vue.use(myCom)
 Vue.config.productionTip = false

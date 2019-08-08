@@ -84,6 +84,9 @@
         ></el-pagination>
       </div>
     </el-card>
+    <!-- 使用自己组件 -->
+    <!-- v-model 背后 :value  @input -->
+    <my-channel v-model="reqParams.channel_id"></my-channel>
   </div>
 </template>
 
